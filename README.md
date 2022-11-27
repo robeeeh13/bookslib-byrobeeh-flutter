@@ -1,6 +1,10 @@
-# bookslib
+# BooksLib
 
-A new Flutter project.
+```
+Nama    : Roby Awaludin Fajar
+NIM     : 222011392
+Kelas   : 3SI3
+```
 
 ## Getting Started
 

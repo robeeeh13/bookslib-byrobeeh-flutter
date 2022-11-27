@@ -1,4 +1,6 @@
 import 'package:bookslib/constants/global_variables.dart';
+import 'package:bookslib/features/auth/screens/auth_screen.dart';
+import 'package:bookslib/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,19 +27,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('BooksLib'),
-        ),
-        body: Column(
-          children: [
-            const Center(
-              child: Text('BooksLib First Page'),
-            ),
-            ElevatedButton(onPressed: () {}, child: Text('Click Me'))
-          ],
-        ),
-      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: const AuthScreen(),
     );
   }
 }
