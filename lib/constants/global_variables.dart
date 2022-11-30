@@ -17,4 +17,5 @@ class GlobalVariables {
   static const Color greyBackgroundColor = Color(0xffebecee);
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.black87;
+  static const blueColor = Color(0xff0095FF);
 }

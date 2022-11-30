@@ -1,5 +1,5 @@
 import 'package:bookslib/constants/global_variables.dart';
-import 'package:bookslib/features/auth/screens/auth_screen.dart';
+import 'package:bookslib/features/auth/screens/landing_screen.dart';
 import 'package:bookslib/features/auth/services/auth_service.dart';
 import 'package:bookslib/features/home/screens/home_screen.dart';
 import 'package:bookslib/providers/user_provider.dart';
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         colorScheme: const ColorScheme.light(
-          primary: GlobalVariables.secondaryColor,
+          primary: GlobalVariables.blueColor,
         ),
         appBarTheme: const AppBarTheme(
           elevation: 0,
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
           ? const HomeScreen()
-          : AuthScreen(),
+          : const LandingScreen(),
     );
   }
 }
