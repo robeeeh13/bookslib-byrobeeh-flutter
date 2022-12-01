@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bookslib/common/widgets/bottom_bar.dart';
 import 'package:bookslib/constants/error_handling.dart';
 import 'package:bookslib/constants/utils.dart';
 import 'package:bookslib/features/home/screens/home_screen.dart';
@@ -76,7 +77,7 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomeScreen.routeName,
+            BottomBar.routeName,
             (route) => false,
           );
         },

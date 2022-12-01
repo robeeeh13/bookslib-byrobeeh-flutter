@@ -1,5 +1,6 @@
-import 'package:bookslib/features/auth/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:bookslib/features/auth/screens/landing_screen.dart';
+import 'package:bookslib/features/auth/screens/signin_screen.dart';
 import 'package:bookslib/features/auth/services/auth_service.dart';
 import 'package:bookslib/common/widgets/custom_textfield.dart';
 import 'package:bookslib/constants/global_variables.dart';
@@ -39,7 +40,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((context) => const LandingScreen()),
+              ),
+            );
           },
           icon: const Icon(
             Icons.arrow_back_ios,

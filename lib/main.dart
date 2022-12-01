@@ -1,7 +1,7 @@
+import 'package:bookslib/common/widgets/bottom_bar.dart';
 import 'package:bookslib/constants/global_variables.dart';
 import 'package:bookslib/features/auth/screens/landing_screen.dart';
 import 'package:bookslib/features/auth/services/auth_service.dart';
-import 'package:bookslib/features/home/screens/home_screen.dart';
 import 'package:bookslib/providers/user_provider.dart';
 import 'package:bookslib/router.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const HomeScreen()
+          ? const BottomBar()
           : const LandingScreen(),
     );
   }
