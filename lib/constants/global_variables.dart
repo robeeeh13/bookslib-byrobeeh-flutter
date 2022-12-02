@@ -26,4 +26,41 @@ class GlobalVariables {
   static var selectedNavBarColor = Colors.cyan[800]!;
   static const unselectedNavBarColor = Colors.black87;
   static const blueColor = Color(0xff0095FF);
+
+  // STATIC IMAGES FOR CAROULSER CATEGORIES
+  static const List<String> carouselImages = [
+    'https://s3.envato.com/files/262098075/Image_Preview_TheBookPromotion.jpg',
+    'https://i.ibb.co/ZhDxs9Y/carousel2fix.png'
+  ];
+
+  static const List<Map<String, String>> categoryImages = [
+    {
+      'title': 'Novel',
+      'image': 'assets/img/novel_category.jpg',
+    },
+    {
+      'title': 'Majalah',
+      'image': 'assets/img/majalah_category.jpg',
+    },
+    {
+      'title': 'Kamus',
+      'image': 'assets/img/kamus_category.jpg',
+    },
+    {
+      'title': 'Komik',
+      'image': 'assets/img/komik_category.jpg',
+    },
+    {
+      'title': 'Manga',
+      'image': 'assets/img/manga_category.jpg',
+    },
+    {
+      'title': 'Ensiklopedia',
+      'image': 'assets/img/ensiklopedia_category.jpg',
+    },
+    {
+      'title': 'Biografi',
+      'image': 'assets/img/biografi_category.jpg',
+    },
+  ];
 }
