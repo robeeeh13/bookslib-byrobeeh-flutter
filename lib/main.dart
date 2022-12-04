@@ -1,5 +1,6 @@
 import 'package:bookslib/common/widgets/bottom_bar.dart';
 import 'package:bookslib/constants/global_variables.dart';
+import 'package:bookslib/features/admin/screens/admin_screen.dart';
 import 'package:bookslib/features/auth/screens/landing_screen.dart';
 import 'package:bookslib/features/auth/services/auth_service.dart';
 import 'package:bookslib/providers/user_provider.dart';
@@ -35,6 +36,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'BooksLib',
       theme: ThemeData(
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
@@ -50,7 +52,9 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const BottomBar()
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+              ? const BottomBar()
+              : const AdminScreen()
           : const LandingScreen(),
     );
   }

@@ -29,8 +29,8 @@ class GlobalVariables {
 
   // STATIC IMAGES FOR CAROULSER CATEGORIES
   static const List<String> carouselImages = [
+    'https://i.ibb.co/ZhDxs9Y/carousel2fix.png',
     'https://s3.envato.com/files/262098075/Image_Preview_TheBookPromotion.jpg',
-    'https://i.ibb.co/ZhDxs9Y/carousel2fix.png'
   ];
 
   static const List<Map<String, String>> categoryImages = [

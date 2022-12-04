@@ -5,6 +5,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final bool obsecureText;
   final Icon icon;
+  final int maxLines;
 
   const CustomTextField({
     super.key,
@@ -12,6 +13,7 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.obsecureText = false,
     required this.icon,
+    this.maxLines = 1,
   });
 
   @override
@@ -39,6 +41,7 @@ class CustomTextField extends StatelessWidget {
         }
         return null;
       },
+      maxLines: maxLines,
     );
   }
 }
