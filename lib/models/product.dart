@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:bookslib/models/rating.dart';
+
 class Product {
   final String productName;
   final String authorName;
@@ -12,6 +14,7 @@ class Product {
   final String category;
   final List<String> images;
   final String? id;
+  final List<Rating>? rating;
 
   Product({
     required this.productName,
@@ -25,6 +28,7 @@ class Product {
     required this.category,
     required this.images,
     this.id,
+    this.rating,
   });
 
   Map<String, dynamic> toMap() {
@@ -40,6 +44,7 @@ class Product {
       'category': category,
       'images': images,
       'id': id,
+      'rating': rating,
     };
   }
 
@@ -56,6 +61,13 @@ class Product {
       category: map['category'] ?? '',
       images: List<String>.from(map['images'] ?? []),
       id: map['_id'] ?? '',
+      rating: map['ratings'] != null
+          ? List<Rating>.from(
+              map['ratings']?.map(
+                (x) => Rating.fromMap(x),
+              ),
+            )
+          : null,
     );
   }
 
