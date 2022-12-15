@@ -63,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Column(
                     children: const <Widget>[
                       Text(
-                        'Sign In',
+                        'Halaman Login',
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         height: 20,
                       ),
                       Text(
-                        'Login to your account',
+                        'Masuk dengan akun yang telah terdaftar',
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey,
@@ -135,7 +135,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           borderRadius: BorderRadius.circular(50),
                         ),
                         child: const Text(
-                          'Sign In',
+                          'Masuk',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 18,
@@ -148,7 +148,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Text("Don't have an account? "),
+                      const Text("Tidak punya akun? "),
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -159,7 +159,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           );
                         },
                         child: const Text(
-                          'Sign Up',
+                          'Daftar disini',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14,

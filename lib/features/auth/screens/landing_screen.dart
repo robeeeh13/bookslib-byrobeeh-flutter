@@ -74,7 +74,7 @@ class LandingScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: const Text(
-                      'Sign In',
+                      'Masuk',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
@@ -100,7 +100,7 @@ class LandingScreen extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50)),
                     child: const Text(
-                      'Sign Up',
+                      'Daftar',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,

@@ -22,14 +22,16 @@ class AuthService {
       required String password}) async {
     try {
       User user = User(
-          id: '',
-          name: name,
-          email: email,
-          username: username,
-          password: password,
-          address: 'address',
-          type: 'type',
-          token: 'token');
+        id: '',
+        name: name,
+        email: email,
+        username: username,
+        password: password,
+        address: 'address',
+        type: 'type',
+        token: 'token',
+        cart: [],
+      );
 
       http.Response res = await http.post(
         Uri.parse('$uri/api/signup'),

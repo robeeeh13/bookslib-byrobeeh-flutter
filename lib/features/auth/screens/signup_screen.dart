@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Column(
                 children: <Widget>[
                   const Text(
-                    'Sign Up',
+                    'Daftar Akun',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Create an account',
+                    'Buat akun anda',
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.grey[700],
@@ -149,7 +149,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: const Text(
-                    'Sign Up',
+                    'Masuk',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
@@ -161,7 +161,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text('Already have an account? '),
+                  const Text('Sudah punya akun? '),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -172,7 +172,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       );
                     },
                     child: const Text(
-                      'Sign In',
+                      'Masuk disini',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
