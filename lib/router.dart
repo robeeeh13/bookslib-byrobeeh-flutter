@@ -1,4 +1,5 @@
 import 'package:bookslib/common/widgets/bottom_bar.dart';
+import 'package:bookslib/features/address/screens/address_screen.dart';
 import 'package:bookslib/features/admin/screens/add_product_screen.dart';
 import 'package:bookslib/features/auth/screens/landing_screen.dart';
 import 'package:bookslib/features/home/screens/category_deals_screen.dart';
@@ -53,6 +54,15 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ProductDetailScreen(product: prodcut),
+      );
+
+    case AddressScreen.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddressScreen(
+          totalAmount: totalAmount,
+        ),
       );
 
     default:

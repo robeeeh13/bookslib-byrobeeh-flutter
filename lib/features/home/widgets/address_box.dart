@@ -1,11 +1,15 @@
+import 'package:bookslib/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/user_provider.dart';
-
-class AddressBox extends StatelessWidget {
+class AddressBox extends StatefulWidget {
   const AddressBox({super.key});
 
+  @override
+  State<AddressBox> createState() => _AddressBoxState();
+}
+
+class _AddressBoxState extends State<AddressBox> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
