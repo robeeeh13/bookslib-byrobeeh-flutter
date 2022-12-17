@@ -86,10 +86,13 @@ class _AddressScreenState extends State<AddressScreen> {
       address: addressToBeUsed,
     );
 
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+
     addressServices.placeOrder(
       context: context,
       address: addressToBeUsed,
       totalSum: double.parse(widget.totalAmount),
+      receiver: user.name,
     );
   }
 

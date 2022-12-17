@@ -77,6 +77,38 @@ class _OrdersState extends State<Orders> {
                               image: orders![index].products[0].images[0],
                             ),
                             Text(orders![index].products[0].productName),
+                            if (orders![index].status == 3)
+                              const Text(
+                                'Telah selesai',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: GlobalVariables.blueColor,
+                                ),
+                              ),
+                            if (orders![index].status == 0)
+                              Text(
+                                'Pending',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: GlobalVariables.selectedNavBarColor,
+                                ),
+                              ),
+                            if (orders![index].status == 1)
+                              Text(
+                                'Dikirim',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: GlobalVariables.selectedNavBarColor,
+                                ),
+                              ),
+                            if (orders![index].status == 2)
+                              Text(
+                                'Diterima',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: GlobalVariables.selectedNavBarColor,
+                                ),
+                              ),
                           ],
                         ),
                       ),

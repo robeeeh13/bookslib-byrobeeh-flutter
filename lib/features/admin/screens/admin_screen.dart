@@ -1,8 +1,13 @@
 import 'package:bookslib/constants/global_variables.dart';
+import 'package:bookslib/features/account/services/account_services.dart';
+import 'package:bookslib/features/admin/screens/analytics_screen.dart';
+import 'package:bookslib/features/admin/screens/orders_screen.dart';
 import 'package:bookslib/features/admin/screens/posts_screen.dart';
 import 'package:flutter/material.dart';
 
 class AdminScreen extends StatefulWidget {
+  static const String routeName = '/admin';
+
   const AdminScreen({super.key});
 
   @override
@@ -10,18 +15,16 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
+  final AccountServices accountServices = AccountServices();
+
   int _page = 0;
   double bottomBarWidth = 42;
   double bottomBarBorderWidth = 5;
 
   List<Widget> pages = [
     const PostsScreen(),
-    const Center(
-      child: Text('Analytic Page'),
-    ),
-    const Center(
-      child: Text('Cart Page'),
-    )
+    const AnalyticsScreen(),
+    const OrdersScreen(),
   ];
 
   void updatePage(int page) {
@@ -47,7 +50,7 @@ class _AdminScreenState extends State<AdminScreen> {
               Container(
                 alignment: Alignment.topLeft,
                 child: const Text(
-                  'BooksLib',
+                  'BooksLib as Admin',
                   style: TextStyle(
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.w600,
@@ -56,11 +59,14 @@ class _AdminScreenState extends State<AdminScreen> {
                   ),
                 ),
               ),
-              const Text(
-                'Admin',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () => accountServices.logOut(context),
+                child: const Text(
+                  'Log Out',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],

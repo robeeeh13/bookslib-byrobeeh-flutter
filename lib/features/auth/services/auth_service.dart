@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:bookslib/common/widgets/bottom_bar.dart';
 import 'package:bookslib/constants/error_handling.dart';
 import 'package:bookslib/constants/utils.dart';
-import 'package:bookslib/features/home/screens/home_screen.dart';
+import 'package:bookslib/features/admin/screens/admin_screen.dart';
 import 'package:bookslib/models/user.dart';
 import 'package:bookslib/providers/user_provider.dart';
 import 'package:flutter/cupertino.dart';
@@ -77,11 +77,22 @@ class AuthService {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            BottomBar.routeName,
-            (route) => false,
-          );
+
+          final String userType = jsonDecode(res.body)['type'];
+
+          if (userType == 'admin') {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              AdminScreen.routeName,
+              (route) => false,
+            );
+          } else {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              BottomBar.routeName,
+              (route) => false,
+            );
+          }
         },
       );
     } catch (e) {

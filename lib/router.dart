@@ -1,6 +1,7 @@
 import 'package:bookslib/common/widgets/bottom_bar.dart';
 import 'package:bookslib/features/address/screens/address_screen.dart';
 import 'package:bookslib/features/admin/screens/add_product_screen.dart';
+import 'package:bookslib/features/admin/screens/admin_screen.dart';
 import 'package:bookslib/features/auth/screens/landing_screen.dart';
 import 'package:bookslib/features/home/screens/category_deals_screen.dart';
 import 'package:bookslib/features/home/screens/home_screen.dart';
@@ -17,6 +18,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const HomeScreen(),
+      );
+
+    case AdminScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const AdminScreen(),
       );
 
     case LandingScreen.routeName:
