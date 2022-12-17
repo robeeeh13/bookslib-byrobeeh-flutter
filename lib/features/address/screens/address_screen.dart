@@ -86,11 +86,6 @@ class _AddressScreenState extends State<AddressScreen> {
       address: addressToBeUsed,
     );
 
-    showSnackBar(
-      context,
-      Provider.of<UserProvider>(context, listen: false).user.address,
-    );
-
     addressServices.placeOrder(
       context: context,
       address: addressToBeUsed,
