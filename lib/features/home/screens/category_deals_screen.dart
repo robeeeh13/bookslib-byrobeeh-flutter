@@ -37,6 +37,8 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
@@ -79,16 +81,14 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 170,
+                  height: queryData.size.height * 0.8,
                   child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.vertical,
                     padding: const EdgeInsets.only(left: 15),
                     itemCount: productList!.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      childAspectRatio: 1.4,
-                      mainAxisSpacing: 10,
+                      crossAxisCount: 2,
                     ),
                     itemBuilder: (context, index) {
                       final product = productList![index];
@@ -101,6 +101,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                           );
                         },
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             SizedBox(
                               height: 130,
@@ -120,7 +121,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                               ),
                             ),
                             Container(
-                              alignment: Alignment.topLeft,
+                              alignment: Alignment.center,
                               padding: const EdgeInsets.only(
                                 left: 0,
                                 top: 5,

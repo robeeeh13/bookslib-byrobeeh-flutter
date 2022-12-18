@@ -1,5 +1,6 @@
 import 'package:bookslib/common/widgets/loader.dart';
 import 'package:bookslib/constants/global_variables.dart';
+import 'package:bookslib/features/account/screens/all_orders_screen.dart';
 import 'package:bookslib/features/account/services/account_services.dart';
 import 'package:bookslib/features/account/widgets/single_product.dart';
 import 'package:bookslib/features/order_details/screens/order_details.dart';
@@ -45,12 +46,20 @@ class _OrdersState extends State<Orders> {
                           fontWeight: FontWeight.w500,
                         )),
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: Text('Lihat Semua',
-                        style: TextStyle(
-                          color: GlobalVariables.selectedNavBarColor,
-                        )),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AllOrdersScreen.routeName,
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Text('Lihat Semua',
+                          style: TextStyle(
+                            color: GlobalVariables.selectedNavBarColor,
+                          )),
+                    ),
                   ),
                 ],
               ),
@@ -73,9 +82,6 @@ class _OrdersState extends State<Orders> {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            SingleProduct(
-                              image: orders![index].products[0].images[0],
-                            ),
                             Text(orders![index].products[0].productName),
                             if (orders![index].status == 3)
                               const Text(
@@ -109,6 +115,9 @@ class _OrdersState extends State<Orders> {
                                   color: GlobalVariables.selectedNavBarColor,
                                 ),
                               ),
+                            SingleProduct(
+                              image: orders![index].products[0].images[0],
+                            ),
                           ],
                         ),
                       ),

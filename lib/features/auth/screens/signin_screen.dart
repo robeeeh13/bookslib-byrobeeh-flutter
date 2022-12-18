@@ -50,7 +50,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ),
       ),
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Column(

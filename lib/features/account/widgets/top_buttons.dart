@@ -1,5 +1,6 @@
 import 'package:bookslib/features/account/services/account_services.dart';
 import 'package:bookslib/features/account/widgets/account_button.dart';
+import 'package:bookslib/features/account/widgets/manage_account.dart';
 import 'package:flutter/material.dart';
 
 class TopButtons extends StatefulWidget {
@@ -16,28 +17,21 @@ class _TopButtonsState extends State<TopButtons> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            AccountButton(
-              text: 'Pesananmu || Dummy',
-              onTap: () {},
-            ),
-            AccountButton(
-              text: 'Turn Seller || Dummy',
-              onTap: () {},
-            ),
-          ],
-        ),
         const SizedBox(height: 10),
         Row(
           children: [
             AccountButton(
-              text: 'Keluar',
-              onTap: () => accountServices.logOut(context),
+              text: 'Kelola Akun',
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  ManageAccountScreen.routeName,
+                );
+              },
             ),
             AccountButton(
-              text: 'Kelola Akun',
-              onTap: () {},
+              text: 'Keluar',
+              onTap: () => accountServices.logOut(context),
             ),
           ],
         ),

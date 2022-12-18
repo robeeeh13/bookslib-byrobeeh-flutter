@@ -11,8 +11,10 @@ import 'package:provider/provider.dart';
 
 class AddressServices {
   // SAVE USER ADDRESS
-  void saveUserAddress(
-      {required BuildContext context, required String address}) async {
+  void saveUserAddress({
+    required BuildContext context,
+    required String address,
+  }) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     try {
       http.Response res = await http.post(

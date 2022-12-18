@@ -149,7 +149,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: const Text(
-                    'Masuk',
+                    'Daftar',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,

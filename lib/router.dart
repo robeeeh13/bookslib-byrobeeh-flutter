@@ -1,8 +1,12 @@
 import 'package:bookslib/common/widgets/bottom_bar.dart';
+import 'package:bookslib/features/account/screens/all_orders_screen.dart';
+import 'package:bookslib/features/account/widgets/manage_account.dart';
 import 'package:bookslib/features/address/screens/address_screen.dart';
+import 'package:bookslib/features/address/screens/change_address_screen.dart';
 import 'package:bookslib/features/admin/screens/add_product_screen.dart';
 import 'package:bookslib/features/admin/screens/admin_screen.dart';
 import 'package:bookslib/features/auth/screens/landing_screen.dart';
+import 'package:bookslib/features/cart/screens/cart_screen.dart';
 import 'package:bookslib/features/home/screens/category_deals_screen.dart';
 import 'package:bookslib/features/home/screens/home_screen.dart';
 import 'package:bookslib/features/order_details/screens/order_details.dart';
@@ -81,6 +85,30 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => OrderDetailScreen(
           order: order,
         ),
+      );
+
+    case ChangeAddressScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ChangeAddressScreen(),
+      );
+
+    case CartScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const CartScreen(),
+      );
+
+    case ManageAccountScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ManageAccountScreen(),
+      );
+
+    case AllOrdersScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const AllOrdersScreen(),
       );
 
     default:

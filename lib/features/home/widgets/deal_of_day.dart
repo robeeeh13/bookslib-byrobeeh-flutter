@@ -59,13 +59,14 @@ class _DealOfDayState extends State<DealOfDay> {
                     Image.network(
                       product!.images[0],
                       height: 235,
-                      fit: BoxFit.fitHeight,
+                      fit: BoxFit.fill,
                     ),
+                    const SizedBox(height: 3),
                     Container(
                       alignment: Alignment.topLeft,
                       padding: const EdgeInsets.only(left: 15),
                       child: Text(
-                        'Rp. ${product!.price.round()}',
+                        'Rp. ${product!.price.toStringAsFixed(2)}',
                         style: const TextStyle(
                           fontSize: 15,
                         ),
@@ -105,7 +106,7 @@ class _DealOfDayState extends State<DealOfDay> {
                             .map(
                               (e) => Image.network(
                                 e,
-                                fit: BoxFit.fitWidth,
+                                fit: BoxFit.fill,
                                 width: 100,
                                 height: 100,
                               ),

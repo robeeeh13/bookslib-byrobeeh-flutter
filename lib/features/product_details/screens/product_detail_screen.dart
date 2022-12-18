@@ -1,6 +1,8 @@
 import 'package:bookslib/common/widgets/custom_button.dart';
 import 'package:bookslib/common/widgets/stars.dart';
 import 'package:bookslib/constants/global_variables.dart';
+import 'package:bookslib/features/address/screens/address_screen.dart';
+import 'package:bookslib/features/cart/screens/cart_screen.dart';
 import 'package:bookslib/features/product_details/services/product_details_services.dart';
 import 'package:bookslib/features/search/screens/search_screen.dart';
 import 'package:bookslib/models/product.dart';
@@ -52,6 +54,22 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     productDetailsServices.addToCart(
       context: context,
       product: widget.product,
+    );
+  }
+
+  void navigateToAddress(int sum) {
+    Navigator.pushNamed(
+      context,
+      AddressScreen.routeName,
+      arguments: sum.toString(),
+    );
+  }
+
+  void navigateToCartScreen() {
+    addToCart();
+    Navigator.pushNamed(
+      context,
+      CartScreen.routeName,
     );
   }
 
@@ -132,7 +150,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 height: 42,
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: const Icon(
-                  Icons.mic,
+                  Icons.book_sharp,
                   color: Colors.white,
                   size: 25,
                 ),
@@ -188,7 +206,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   return Builder(
                     builder: (BuildContext context) => Image.network(
                       i,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                       height: 300,
                     ),
                   );
@@ -215,7 +233,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                       children: [
                         TextSpan(
-                          text: 'Rp. ${widget.product.price.round()}',
+                          text:
+                              'Rp. ${widget.product.price.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.red,
@@ -257,7 +276,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               padding: const EdgeInsets.all(10),
               child: CustomButton(
                 text: 'Beli Sekarang',
-                onTap: () {},
+                onTap: navigateToCartScreen,
               ),
             ),
             Padding(
@@ -266,6 +285,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 text: 'Tambah ke Keranjang',
                 onTap: addToCart,
                 color: const Color.fromARGB(255, 5, 83, 161),
+                textColor: GlobalVariables.backgroundColor,
               ),
             ),
             Container(

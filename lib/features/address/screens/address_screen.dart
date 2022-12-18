@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bookslib/common/widgets/custom_button.dart';
 import 'package:bookslib/constants/utils.dart';
 import 'package:bookslib/features/address/services/address_services.dart';
@@ -35,7 +34,6 @@ class _AddressScreenState extends State<AddressScreen> {
   final AddressServices addressServices = AddressServices();
 
   @override
-  @override
   void initState() {
     super.initState();
     paymentItems.add(
@@ -54,10 +52,6 @@ class _AddressScreenState extends State<AddressScreen> {
     rtRwController.dispose();
     kecamatanKabKotaController.dispose();
     kodePosController.dispose();
-  }
-
-  void navigateToSearchScreen(String query) {
-    Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
 
   void payBooks(String addressFromProvider) {
@@ -99,6 +93,7 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   Widget build(BuildContext context) {
     var address = context.watch<UserProvider>().user.address;
+    int sum = int.parse(widget.totalAmount);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(58),
@@ -131,7 +126,7 @@ class _AddressScreenState extends State<AddressScreen> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black12,
+                          color: Colors.black38,
                         ),
                       ),
                       child: Padding(
@@ -157,6 +152,7 @@ class _AddressScreenState extends State<AddressScreen> {
               Form(
                 key: _addressFormKey,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextField(
                       controller: namaJalanController,
@@ -196,11 +192,20 @@ class _AddressScreenState extends State<AddressScreen> {
                         fontSize: 12,
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Total harga: Rp. ${sum.toStringAsFixed(2)}',
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              CustomButton(text: 'Bayar', onTap: () => payBooks(address)),
+              CustomButton(
+                text: 'Bayar',
+                onTap: () => payBooks(address),
+                color: const Color.fromARGB(255, 5, 83, 161),
+                textColor: GlobalVariables.backgroundColor,
+              ),
             ],
           ),
         ),

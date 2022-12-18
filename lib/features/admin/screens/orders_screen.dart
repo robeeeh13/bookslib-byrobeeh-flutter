@@ -32,56 +32,72 @@ class _OrdersScreenState extends State<OrdersScreen> {
   Widget build(BuildContext context) {
     return orders == null
         ? const Loader()
-        : GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            itemCount: orders!.length,
-            itemBuilder: (context, index) {
-              final orderData = orders![index];
-              return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    OrderDetailScreen.routeName,
-                    arguments: orderData,
-                  );
-                },
-                child: SizedBox(
-                  height: 150,
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(orderData.products[0].productName),
-                          if (orderData.status == 3)
-                            const Text(
-                              'Pesanan terselesaikan',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: GlobalVariables.blueColor,
-                              ),
-                            ),
-                          if (orderData.status != 3)
-                            const Text(
-                              'Belum terselesaikan',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: Colors.red,
-                              ),
-                            ),
-                          SingleProduct(
-                            image: orderData.products[0].images[0],
+        : Scaffold(
+            body: GridView.builder(
+              itemCount: orders!.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              // shrinkWrap: true,
+              itemBuilder: (context, index) {
+                final orderData = orders![index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      OrderDetailScreen.routeName,
+                      arguments: orderData,
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          height: 20,
+                          child: Text(
+                            orderData.receiver,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                      if (orderData.status == 3)
+                        const SizedBox(
+                          height: 15,
+                          child: Text(
+                            'Pesanan terselesaikan',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: GlobalVariables.blueColor,
+                            ),
+                          ),
+                        ),
+                      if (orderData.status != 3)
+                        const SizedBox(
+                          height: 15,
+                          child: Text(
+                            'Belum terselesaikan',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ),
+                      SizedBox(
+                        height: 129,
+                        child: SingleProduct(
+                          image: orderData.products[0].images[0],
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           );
   }
 }

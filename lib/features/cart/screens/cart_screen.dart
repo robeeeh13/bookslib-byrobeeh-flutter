@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
+  static const String routeName = '/cart-screen';
   const CartScreen({super.key});
 
   @override
@@ -107,7 +108,7 @@ class _CartScreenState extends State<CartScreen> {
                 height: 42,
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: const Icon(
-                  Icons.mic,
+                  Icons.book_sharp,
                   color: Colors.white,
                   size: 25,
                 ),
@@ -126,6 +127,8 @@ class _CartScreenState extends State<CartScreen> {
               child: CustomButton(
                 text: 'Checkout produk sekarang',
                 onTap: () => navigateToAddress(sum),
+                color: const Color.fromARGB(255, 5, 83, 161),
+                textColor: GlobalVariables.backgroundColor,
               ),
             ),
             const SizedBox(height: 15),

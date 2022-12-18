@@ -130,7 +130,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 height: 42,
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: const Icon(
-                  Icons.mic,
+                  Icons.book_sharp,
                   color: Colors.white,
                   size: 25,
                 ),
@@ -165,13 +165,27 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                   children: [
                     Text(
                       'Penerima:                      ${widget.order.receiver}',
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Text(
                       'Tanggal Pemesanan:   ${DateFormat().format(DateTime.fromMillisecondsSinceEpoch(widget.order.orderedAt))}',
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                    Text('Id Pesanan:                   ${widget.order.id}'),
                     Text(
-                      'Total Harga: Rp.            ${widget.order.totalPrice.toStringAsFixed(2)}',
+                      'Id Pesanan:                   ${widget.order.id.substring(1, 20)}...',
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Text(
+                      'Total Harga:                  Rp. ${widget.order.totalPrice.toStringAsFixed(2)}',
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ],
                 ),
@@ -299,6 +313,8 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                           : CustomButton(
                               text: 'Selesaikan',
                               onTap: () => changeOrderStatus(currentStep),
+                              color: const Color.fromARGB(255, 5, 83, 161),
+                              textColor: GlobalVariables.backgroundColor,
                             );
                     }
                     return const SizedBox();

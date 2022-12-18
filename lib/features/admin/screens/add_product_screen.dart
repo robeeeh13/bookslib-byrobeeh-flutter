@@ -236,6 +236,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 CustomButton(
                   text: 'Tambah',
                   onTap: sellProduct,
+                  color: const Color.fromARGB(255, 5, 83, 161),
+                  textColor: GlobalVariables.backgroundColor,
                 ),
                 const SizedBox(height: 20),
               ],

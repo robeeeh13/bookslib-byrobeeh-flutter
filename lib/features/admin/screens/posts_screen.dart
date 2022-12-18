@@ -51,25 +51,26 @@ class _PostsScreenState extends State<PostsScreen> {
             body: GridView.builder(
               itemCount: products!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
+                crossAxisCount: 2,
+              ),
               itemBuilder: (context, index) {
                 final productData = products![index];
                 return Column(
                   children: [
                     SizedBox(
-                      height: 140,
+                      height: 110,
                       child: SingleProduct(
                         image: productData.images[0],
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Text(
                             productData.productName,
+                            maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
                           ),
                         ),
                         IconButton(

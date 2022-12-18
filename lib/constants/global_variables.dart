@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-String uri = 'http://169.254.155.212:3000';
+String uri = 'https://smiling-outerwear-goat.cyclic.app';
+// String uri = 'http://169.254.155.212:3000';
 
 class GlobalVariables {
   // COLORS

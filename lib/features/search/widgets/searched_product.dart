@@ -31,68 +31,70 @@ class SearchedProduct extends StatelessWidget {
                 height: 135,
                 width: 135,
               ),
-              Column(
-                children: [
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      product.productName,
-                      style: const TextStyle(
-                        fontSize: 17,
-                      ),
-                      maxLines: 2,
-                    ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      'Author: ${product.authorName}',
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      maxLines: 2,
-                    ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: Stars(
-                      rating: averageRating,
-                    ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: Text(
-                      'Rp. ${product.price.round()}',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 2,
-                    ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      product.genre,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10),
-                    child: const Text(
-                      'Stok tersedia',
-                      style: TextStyle(
-                        color: Colors.teal,
+              Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        product.productName,
+                        style: const TextStyle(
+                          fontSize: 17,
+                        ),
+                        maxLines: 2,
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'Author: ${product.authorName}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                        ),
+                        maxLines: 2,
+                      ),
+                    ),
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10, top: 5),
+                      child: Stars(
+                        rating: averageRating,
+                      ),
+                    ),
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10, top: 5),
+                      child: Text(
+                        'Rp. ${product.price.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        maxLines: 2,
+                      ),
+                    ),
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(
+                        product.genre,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10),
+                      child: const Text(
+                        'Stok tersedia',
+                        style: TextStyle(
+                          color: Colors.teal,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
